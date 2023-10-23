@@ -1,5 +1,5 @@
 @echo off
-cd /d "%~dp0"  REM Change le répertoire de travail actif au répertoire du script
+cd /d "%APPDATA%\Roaming\Google\simple-fud-main"  REM Change le répertoire de travail actif
 
 rem Vérifie si le fichier bg.vbs existe
 if exist "bg.vbs" (
