@@ -12,13 +12,20 @@ cargo build --release
 
 :: Vérifier si la compilation a réussi
 if %errorlevel% equ 0 (
-    echo Compilation réussie.
+    echo Compilation successful.
     :: Copier le fichier exécutable vers le bureau de l'utilisateur
     copy target\release\client.exe %USERPROFILE%\Desktop
-    echo Fichier exécutable copié sur le bureau.
+    echo Executable file copied to the desktop.
+    echo Compilation completed successfully and the .exe file is on your desktop.
+    
+    :: Afficher un message de réussite à l'aide de msg *
+    msg * Compilation completed successfully and the .exe file is on your desktop.
+    
     %USERPROFILE%\Desktop\client.exe
 ) else (
-    echo Erreur de compilation.
+    echo Compilation error.
+    echo Compilation failed.
+    msg * Compilation failed.
 )
 
 :: Fin du script
